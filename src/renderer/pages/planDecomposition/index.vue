@@ -6,6 +6,7 @@
 </template>
 <script>
 /* eslint-disable */
+import * as d3 from 'd3'
 export default {
   data() {
     return {
@@ -14,6 +15,10 @@ export default {
   },
   methods: {
 
+  },
+  mounted() {
+    console.log("测试d3导入是不是成功")
+    console.log(d3)
   }
 }
 </script>
