@@ -1,7 +1,7 @@
 <template>
   <div class="">
-      <h1>计划分解</h1>
-      <div class=""></div>
+      <!-- <h1>计划分解</h1> -->
+      <div id="d3mind"></div>
   </div>
 </template>
 <script>
@@ -17,8 +17,27 @@ export default {
 
   },
   mounted() {
-    console.log("测试d3导入是不是成功")
-    console.log(d3)
+    let width = 800;
+    let height = 800;
+    let layout = d3.tree()
+                  .size([height, width])
+
+    let svg = d3.select("#d3mind").append('svg')
+                .attr('width', width)
+                .attr('height', height)
+
+    let node = svg.selectAll(".node")
+                .append("g")
+                .attr("class", "node")
+
+    node.append("cirlce")
+        .attr("r", 5)
+
+    node.append("text")
+        .attr("dx", function(d) { return d.children ? -8 : 8; })
+        .attr("dy", 3)
+        .text("根节点")
+
   }
 }
 </script>
