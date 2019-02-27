@@ -1,14 +1,9 @@
 <template>
   <div class="">
-<<<<<<< HEAD
-    <!-- <h1>计划分解</h1> -->
-    <div class=""></div>
-=======
       <!-- <h1>计划分解</h1> -->
       <button @click="createNew()">新建</button>
       <button @click="addNodes()">新建节点</button>
       <div id="d3mind"></div>
->>>>>>> 54624d8f01035d6c14db155885ad1335f8b39a46
   </div>
 </template>
 <script>
@@ -252,10 +247,14 @@ export default {
   },
   mounted() {
 
-    d3.json('../../../../static/json/data.json', function(json) {
-      console.log("首次加载数据")
+    d3.json('../../../../static/json/data.json').then((json) => {
       console.log(json)
     })
+
+    // d3.json('../../../../static/json/data.json', function(json) {
+    //   console.log("首次加载数据")
+    //   console.log(json)
+    // })
 
     tree = d3.tree()
           .size([h, w]);
