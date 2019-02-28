@@ -23,39 +23,44 @@ export default {
   data() {
     return {
 
+      testData: {
+          "name": "Root",
+          "children": [
+              {
+              "name": "Branch 1",
+              "children": [
+                  {"name": "Leaf 3"},
+                  {"name": "Leaf 4"}
+              ]
+              },
+              {"name": "Branch 2"}
+          ]
+      }
+
     }
   },
   methods: {
 
-    loadJSON(fileName) {
-      console.log(fileName)
+    loadJSON() {
+      var i=0, l=this.testData.children.length;
+      window.data = root = this.testData;
+      root.x0 = h / 2;
+      root.y0 = 0;
+      
+      this.testData.left = [];
+      this.testData.right = [];
+      for(; i<l; i++){
+        if(i%2){
+          this.testData.left.push(this.testData.children[i]);
+          this.testData.children[i].position = 'left';
+        }else{
+          this.testData.right.push(this.testData.children[i]);
+          this.testData.children[i].position = 'right';
+        }
+      }
 
-      d3.json(fileName, function(json) {
-        console.log(json)
-      })
-
-      // d3.json(fileName, (json) => {
-      //   console.log(json)
-      //   var i=0, l=json.children.length;
-      //   window.data = root = json;
-      //   root.x0 = h / 2;
-      //   root.y0 = 0;
-        
-      //   json.left = [];
-      //   json.right = [];
-      //   for(; i<l; i++){
-      //     if(i%2){
-      //       json.left.push(json.children[i]);
-      //       json.children[i].position = 'left';
-      //     }else{
-      //       json.right.push(json.children[i]);
-      //       json.children[i].position = 'right';
-      //     }
-      //   }
-
-      //   this.update(root, true);
-      //   this.selectNode(root);
-      // })
+      this.update(root, true);
+      this.selectNode(root);
     },
 
     toArray(item, arr, d) {
@@ -85,7 +90,6 @@ export default {
     },
 
     createNew() {
-      console.log("点击新建")
       root = {name: 'Root', children: [], left: [], right: []};
       this.update(root, true);
       this.selectNode(root);
@@ -195,20 +199,14 @@ export default {
         ]
       }
 
-      console.log("连线数据生成。。。")
-      // console.log(nodes)
-      // console.log(nodes.links)
-      // nodes.links(function(d) {
-      //   console.log(d)
-      // })
-      console.log(tree.links(nodes))
+      // console.log("连线数据生成。。。")
+      // console.log(tree.links(nodes))
 
+      console.log(testObject.links)
 
       let link = vis.selectAll("path.link")
-                    .data(tree.links(nodes), function(d) { return d.target.id })
-                    // .data(nodes.links())
-
-      
+                    .data(this.testData.links, function(d) { return d.target.id })
+                    // .data(this.testData.links)
 
       // link.enter().insert("svg:path", "g")
       //     .attr("class", "link")
@@ -246,16 +244,6 @@ export default {
     }
   },
   mounted() {
-
-    d3.json('../../../../static/json/data.json').then((json) => {
-      console.log(json)
-    })
-
-    // d3.json('../../../../static/json/data.json', function(json) {
-    //   console.log("首次加载数据")
-    //   console.log(json)
-    // })
-
     tree = d3.tree()
           .size([h, w]);
 
@@ -272,11 +260,8 @@ export default {
     //     .x(function(d) { console.log(d.date) })
     //     .y(function(d) { console.log(d.value) })
 
-
-    this.loadJSON('../../../../static/json/data.json')
-
+    this.loadJSON()
     // this.createNew()
-
   }
 }
 </script>

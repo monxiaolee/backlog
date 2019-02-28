@@ -39,9 +39,9 @@ export default {
 }
 .days-bar {
   position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100vw;
+  top: 0px;
+  left: 60px;
+  width: calc(100vw - 60px);
   height: 50px;
   background: #2a2a2a;
 }
@@ -63,7 +63,7 @@ export default {
     line-height: 50px;
     text-transform: uppercase;
     /* font-family: "Exo 2"; */
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 300;
     color: white;
 }

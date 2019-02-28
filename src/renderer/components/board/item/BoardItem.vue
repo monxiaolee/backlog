@@ -1,52 +1,34 @@
 <template>
-  <div :class="{'doneItem': isDone, 'isEditing': isEditing}"
-       class="item list-complete-item">
+  <div :class="{'doneItem': isDone, 'isEditing': isEditing}" class="item list-complete-item">
     <div class="draggable" v-if="!isFiltered">
-      <Icon type="more"
-            class="movable-icon"
-      ></Icon>
+      <Icon type="more" class="movable-icon"></Icon>
     </div>
     <input v-if="isEditing"
            type="text"
-           v-model="draftText"
+           :value="draftText"
            ref="editableItem"
            @keyup.enter="saveItem"
            v-on:blur="saveItem"
-           class="draftText animated fadeIn">
+           class="draftText animated fadeIn"/>
     <div class="item-div" v-else>
       <Checkbox :value="isDone"
                 @on-change="changeIsDone">
       </Checkbox>
-      <span class="item-text"
-            v-html="textWithLink"
-            @click="handleLinkClick"
-            v-if="markdownMode"
-      >
+      <span class="item-text" v-html="textWithLink" @click="handleLinkClick" v-if="markdownMode">
       </span>
-      <span class="item-text"
-            @click="handleLinkClick"
-            v-if="!markdownMode"
-      >
+      <span class="item-text" @click="handleLinkClick" v-if="!markdownMode">
         {{textWithLink}}
       </span>
       <span v-if="showDate" class="creationDate">{{created | simpleDate}}</span>
     </div>
     <span class="actionBtns" v-if="!isEditing">
-      <Button icon="edit"
-              v-if="!isDone"
-              shape="circle"
-              size="small"
-              type="dashed"
-              @click="editItem"
-              tabindex="-1"
-      />
+      <Button icon="edit" v-if="!isDone" shape="circle" size="small" type="dashed" @click="editItem" tabindex="-1"/>
 
       <ActionButtons @remove="removeItem"
                      @moveToTop="moveItemToTop"
                      @moveToBottom="moveItemToBottom"
                      @showMoveToBoardModal="showMoveToBoardModal"
-                     :boardId="boardId"
-      >
+                     :boardId="boardId">
       </ActionButtons>
     </span>
   </div>

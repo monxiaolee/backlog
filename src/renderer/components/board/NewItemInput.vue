@@ -5,7 +5,7 @@
         <input ref="mainInput"
                :id="'newItem-'+boardId"
                :autofocus="true"
-               v-model="newItem"
+               :value="newItem"
                placeholder="Type and hit Enter"
                @on-enter="submitNewItem"
                @on-click="submitNewItem"
@@ -18,8 +18,7 @@
       <Col class="input-switch">
         <i-switch :value="prependNewItem"
                   @on-change="prependNewItemChange"
-                  size="large"
-        >
+                  size="large">
           <span slot="open">Head</span>
           <span slot="close">Tail</span>
         </i-switch>

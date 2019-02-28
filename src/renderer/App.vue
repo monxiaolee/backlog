@@ -68,13 +68,12 @@
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, sans-serif;
     height: 100vh;
     background-color: #ffffff;
-    padding: 10px 0;
     margin-top: 30px;
     overflow: hidden;
 
     #app {
       overflow: auto;
-      height: 90vh!important;
+      height: 100vh!important;
       padding-right: 8px;
     }
   }

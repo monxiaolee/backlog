@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="findItem"
+    <input :value="findItem"
            :id="'findItem-'+boardId"
            class="findItem"
            placeholder="search..."
