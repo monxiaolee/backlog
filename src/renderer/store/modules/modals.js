@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import boardsRepository from '@/repositories/boardsRepository'
 
 const remote = require('electron').remote
@@ -22,6 +23,9 @@ const state = {
     movingItemId: null
   },
   update: {
+    isVisible: false
+  },
+  addEventModal: {
     isVisible: false
   }
 }
@@ -71,6 +75,9 @@ const mutations = {
   },
   SET_MOVING_ITEM_TEXT (state, movingItemText) {
     state.moveToBoard.movingItemText = movingItemText
+  },
+  SHOW_EVENT_MODAL (state) {
+    state.addEventModal.isVisible = true
   }
 }
 
@@ -118,6 +125,9 @@ const actions = {
   },
   resetNewBoardName ({commit}) {
     commit('SET_NEW_BOARD_NAME', '')
+  },
+  showEventModal ({commit}) {
+    commit('SHOW_EVENT_MODAL', '')
   }
 }
 
