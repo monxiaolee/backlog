@@ -34,8 +34,6 @@
                 <div class="sideColor"></div>
                 <p id="time">7:40-8:25</p>
                 <p id="className">事件名称</p>
-                <p id="teacherName"></p>
-                <p id="classRoom">201</p>
               </div>
             </div>
         </div>
@@ -63,7 +61,7 @@ export default {
   components: { NewEventModal }
 }
 </script>
-<style>
+<style scoped>
 .top-bar {
   z-index: 99;
   position: absolute;
@@ -136,7 +134,7 @@ export default {
   position: absolute;
   top: 100px;
   left: 60px;
-  width: calc(100vh - 60px);
+  width: calc(100% - 60px);
   height: calc(100vh - 120px);
   padding-top: 20px;
 }
@@ -172,8 +170,8 @@ export default {
 .container .innerContainer .week .day .lesson .sideColor {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 10px;
+  left: 6px;
+  width: 5px;
   height: 100%;
   background: #00FF88;
 }
@@ -181,45 +179,35 @@ export default {
 .container .innerContainer .week .day .lesson #className {
   position: absolute;
   top: 0;
-  left: 20px;
-  font-family: "Exo 2";
-  font-size: 20px;
+  left: 26px;
   font-weight: 300;
   color: white; 
 }
-.container .innerContainer .week .day .lesson #classRoom {
+/* .container .innerContainer .week .day .lesson #classRoom {
   position: absolute;
   bottom: 0;
-  left: 20px;
-  font-family: "Exo 2";
-  font-size: 18px;
+  left: 26px;
   font-weight: 300;
   color: white; 
-}
-.container .innerContainer .week .day .lesson #teacherName {
+} */
+/* .container .innerContainer .week .day .lesson #teacherName {
   position: absolute;
   bottom: 25px;
-  left: 20px;
-  font-family: "Exo 2";
-  font-size: 18px;
+  left: 26px;
   font-weight: 300;
   color: white; 
-}
+} */
 .container .innerContainer .week .day .lesson #time {
+  color: #ffffff;
   position: absolute;
   bottom: 0;
-  right: 0;
-  font-family: "Exo 2";
-  font-size: 18px;
-  font-weight: 300;
-  color: white; 
+  left: 26px;
 }
 .container .innerContainer .week .day .lesson .deleteItem {
   display: none;
   position: absolute;
   bottom: 20px;
   right: 0;
-  font-size: 22px;
   color: white;
   cursor: pointer; 
 }
@@ -231,15 +219,12 @@ export default {
   position: absolute;
   bottom: 20px;
   right: 30px;
-  font-size: 22px;
   color: white;
   cursor: pointer; 
 }
 .container .innerContainer .week .day .lesson .editItem:hover {
   color: #00FF88; 
 }
-
-
 </style>
 
 

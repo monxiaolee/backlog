@@ -7,7 +7,7 @@ Vue.use(Router)
 import Layout from '../components/Layout'
 import WeekPlan from '../pages/weekPlan/index'
 import DayPlan from '../components/DayPlan'
-import MonthPlan from '../pages/MonthPlan'
+import MonthPlan from '../pages/monthPlan/MonthPlan'
 import PlandeComposition from '../pages/planDecomposition/index'
 
 const routes = [

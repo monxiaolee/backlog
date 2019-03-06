@@ -5,12 +5,12 @@
         title="添加新事件"
         @on-ok="ok"
         @on-cancel="cancel">
-        <Form :label-width="80">
+        <Form :label-width="80" :model="formItem">
             <FormItem label="开始时间：">
-                <TimePicker format="HH:mm" placeholder="请选择开始时间"></TimePicker>
+                <TimePicker format="HH:mm" placeholder="请选择开始时间" v-model="formItem.startTime"></TimePicker>
             </FormItem>
             <FormItem label="结束时间：">
-                <TimePicker format="HH:mm" placeholder="请选择结束时间"></TimePicker>
+                <TimePicker format="HH:mm" placeholder="请选择结束时间" v-model="formItem.endTime"></TimePicker>
             </FormItem>
             <FormItem label="选择星期：">
                 <Select v-model="formItem.weekList">
@@ -18,7 +18,7 @@
                 </Select>
             </FormItem>
             <FormItem label="选择颜色：">
-                <ColorPicker v-model="defaultColor" />
+                <ColorPicker v-model="formItem.defaultColor" />
             </FormItem>
         </Form>
     </Modal>
@@ -30,10 +30,13 @@ export default {
   data() {
       return {
           formItem: {
+            startTime: '',
+            endTime: '',
             weekList: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
-            color: ['红色', '黄色', '蓝色']
-          },
-          defaultColor: '#19be6b'
+            defaultColor: '#19be6b'
+            // color: ['红色', '黄色', '蓝色']
+          }
+          
       }
   },
   computed: {
