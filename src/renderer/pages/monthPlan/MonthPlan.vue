@@ -1,60 +1,43 @@
 <template>
   <div class="container">
-      <div id="calendar" style="height: 800px;"></div>
+      <full-calendar :events="fcEvents"></full-calendar>
   </div>
 </template>
 <script>
 /* eslint-disable */
-import Calendar from 'tui-calendar' /* ES6 */
-import "tui-calendar/dist/tui-calendar.css"
+// import Calendar from 'tui-calendar'
+// import "tui-calendar/dist/tui-calendar.css"
+
+// import 'fullcalendar/dist/fullcalendar.css'
+import fullCalendar from 'vue-fullcalendar'
 
 export default {
   data() {
       return {
-
+        fcEvents: [
+          {
+              title  : 'event1',
+              start  : '2019-03-16',
+          },
+          {
+              title  : 'event2',
+              start  : '2019-03-19',
+              end    : '2019-03-22',
+          },
+          {
+              title  : 'event3',
+              start  : '2019-03-09T12:30:00',
+              allDay : false,
+          }
+        ]
       }
   },
+  components: {fullCalendar},
   mounted() {
-    this.initCalendar()
+    
   },
   methods: {
-    initCalendar() {
-
-      let calendar = new Calendar('#calendar', {
-        defaultView: 'month',
-        taskView: true,
-        template: {
-          monthGridHeader: function(model) {
-            let date = new Date(model.date);
-            let template = '<span class="tui-full-calendar-weekday-grid-date">' + date.getDate() + '</span>';
-            return template;
-          }
-        }
-      })
-
-      calendar.createSchedules([
-        {
-            id: '1',
-            calendarId: '1',
-            title: 'my schedule',
-            category: 'time',
-            dueDateClass: '',
-            start: '2019-03-05T22:30:00+09:00',
-            end: '2019-03-08T02:30:00+09:00'
-        },
-        {
-            id: '2',
-            calendarId: '1',
-            title: 'second schedule',
-            category: 'time',
-            dueDateClass: '',
-            start: '2019-03-12T17:30:00+09:00',
-            end: '2019-03-18T17:31:00+09:00',
-            isReadOnly: true    // schedule is read-only
-        }
-      ]);
-
-    }
+    
   }
 }
 </script>

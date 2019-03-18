@@ -46,6 +46,7 @@
     "tui-calendar": "^1.10.1-rc",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
+    "vue-fullcalendar": "^1.0.9",
     "vue-router": "^3.0.2",
     "vue-shortkey": "^3.1.6",
     "vuebar": "0.0.18",

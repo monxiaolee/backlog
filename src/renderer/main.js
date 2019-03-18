@@ -27,6 +27,7 @@ Object.defineProperties(Vue.prototype, {
 Vue.use(iView)
 Vue.use(Vuebar)
 Vue.use(VueShortkey)
+// Vue.use(FullCalendar)
 
 Vue.directive('focus', {
   componentUpdated: function (el) {
