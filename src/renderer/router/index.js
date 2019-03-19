@@ -28,14 +28,15 @@ const routes = [
             component: DayPlan
         }]
     },
-    {
-        path:"/weekplan",
-        component: Layout,
-        children: [{
-            path: 'index',
-            component: WeekPlan
-        }]
-    },
+    // 暂时把星期的注释，还没想好
+    // {
+    //     path:"/weekplan",
+    //     component: Layout,
+    //     children: [{
+    //         path: 'index',
+    //         component: WeekPlan
+    //     }]
+    // },
     {
         path:"/monthplan",
         component: Layout,

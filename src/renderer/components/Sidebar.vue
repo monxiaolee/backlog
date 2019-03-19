@@ -8,12 +8,14 @@
 				</span>
 			</router-link>
 
-			<!-- 周计划 -->
+			<!-- 周计划 待考虑 -->
+			<!-- 
 			<router-link to="/weekplan/index">
 				<span>
 					<Icon type="ios-timer"></Icon>
 				</span>
-			</router-link>
+			</router-link> 
+			-->
 
 			<!-- 月计划 -->
 			<router-link to="/monthplan/index">
