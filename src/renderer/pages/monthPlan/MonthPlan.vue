@@ -8,9 +8,8 @@
         @on-cancel="cancel">
         <Form :model="eventForm">
           <FormItem>
-            <Input type="text" v-model="eventForm.address" placeholder="位置">
-                <Icon type="ios-person-outline" slot="prepend"></Icon>
-            </Input>
+            <Input type="text" v-model="eventForm.address" placeholder="位置"/>
+            <Icon type="ios-person-outline" slot="prepend"></Icon>
           </FormItem>
           <Row>
             <i-col span = "12">

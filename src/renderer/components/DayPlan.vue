@@ -2,7 +2,7 @@
   <div class="">
 
     <Row style="height: 100%;" class="content">
-      <Col span="24" style="height: 100%;">
+      <i-col span="24" style="height: 100%;">
         <Tabs v-model="activeBoard"
               type="card"
               @on-click="saveActiveBoard"
@@ -41,7 +41,7 @@
             </Tooltip>
           </div>
         </Tabs>
-      </Col>
+      </i-col>
     </Row>
 
 
@@ -111,21 +111,21 @@ data () {
 },
 computed: {
     isLastBoard () {
-    return this.boards.length === 1
+        return this.boards.length === 1
     },
     boards () {
-    return this.$store.state.boards.boardsList
+        return this.$store.state.boards.boardsList
     },
     activeBoard: {
-    set (value) {
-        this.$store.dispatch('setActiveBoard', value)
-    },
-    get () {
-        return this.$store.state.boards.activeBoard
-    }
+        set (value) {
+            this.$store.dispatch('setActiveBoard', value)
+        },
+        get () {
+            return this.$store.state.boards.activeBoard
+        }
     },
     settings () {
-    return this.$store.state.settings
+        return this.$store.state.settings
     }
 },
 methods: {

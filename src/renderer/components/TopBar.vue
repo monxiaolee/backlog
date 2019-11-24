@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  /*eslint-disable*/
   const remote = require('electron').remote
 
   export default {
@@ -42,6 +43,8 @@
       minimize () {
         remote.BrowserWindow.getFocusedWindow().minimize()
       }
+    },
+    mounted() {
     }
   }
 </script>

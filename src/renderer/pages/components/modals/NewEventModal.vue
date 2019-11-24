@@ -53,8 +53,7 @@ export default {
         console.log("取消")
       }
   },
-  mounted() {
-
+  mounted () {
   }
 }
 </script>
